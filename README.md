@@ -1,11 +1,12 @@
 # GA-Project4
+By Toby Schaeffer and Jared Yamauchi
 
 # Project 4 
-Title: Hangout
+Title: Restofy
 Date: May 26,2015
 
 # Project Ideas:
-- Users explore and could see any live events around them
+- Users explore and could see any restaurant around them and see their details about the restaurant.
 - Users are allow to post their statuses about what's happening there like Tweeter. 
 - Users can see the maps where you can see other users' comments on the side in the User Interface. 
 
