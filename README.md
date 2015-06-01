@@ -1,8 +1,7 @@
 # GA-Project4
 By Toby Schaeffer and Jared Yamauchi
 
-# Project 4 
-Title: Restofy
+# Title: Restofy
 Date: May 26,2015
 
 # Project Ideas:
