@@ -1,8 +1,8 @@
 class CreateViolations < ActiveRecord::Migration
   def change
     create_table :violations do |t|
-      t.references :InspectionID, index: true, foreign_key: true
-      t.references :ViolationNumber, index: true, foreign_key: true
+      t.belongs_to :inspection, index: true, foreign_key: true
+      t.belongs_to :potential_violation, index: true, foreign_key: true
       t.text :ViolationText
 
       t.timestamps null: false

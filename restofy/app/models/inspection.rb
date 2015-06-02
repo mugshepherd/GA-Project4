@@ -1,4 +1,4 @@
 class Inspection < ActiveRecord::Base
-  has_many :restaurants 
+  belongs_to :restaurants 
   has_many :potential_violations, through :violations
 end

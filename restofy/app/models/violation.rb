@@ -1,4 +1,4 @@
 class Violation < ActiveRecord::Base
-  has_many :inspections
-  has_many :potential_violations
+  belongs_to :inspections
+  belongs_to :potential_violations
 end
