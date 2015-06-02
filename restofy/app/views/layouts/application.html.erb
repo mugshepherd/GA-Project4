@@ -39,7 +39,11 @@
         </nav>
 	</header>
 
-<%= yield %>
-
+	<%= yield %>
+	<div id='map'></div>
+	<script> 
+		L.mapbox.accessToken = 'pk.eyJ1IjoiaGF3YWlpemVybyIsImEiOiJlMmRlM2YwM2VlZWExODE0MGJhNzY2OGZlYzNlMDY2NiJ9.bb6hiEKb0vpXFkNRB4y78w';
+		var map = L.mapbox.map('map', 'hawaiizero.75dae6ca');
+	</script>
 </body>
 </html>

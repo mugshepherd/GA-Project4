@@ -1,5 +1,7 @@
+<h2>Edit Your Profile</h2>
+
 <p>
-<%= form_for @profile do |f| %>
+<%= form_for @profile, url: {action: "update"} do |f| %>
   <%= f.label :name %><br>
   <%= f.text_field :name %>
   <br><br>
@@ -16,6 +18,6 @@
   <%= f.text_field :about_me %>
   <br><br>
   
-  <%= f.submit "Save", :class => 'profile-form' %>
+  <%= f.submit "Update", :class => 'profile-form' %>
 <% end %>
 </p>

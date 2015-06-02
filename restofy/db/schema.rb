@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150602161009) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "profile_id"
-    t.text    "favorites"
+    t.text    "location"
   end
 
   create_table "inspections", force: :cascade do |t|
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150602161009) do
 
   create_table "interests", force: :cascade do |t|
     t.integer "profile_id"
+    t.integer "cuisine_id"
   end
 
   create_table "maps", force: :cascade do |t|
@@ -66,8 +67,7 @@ ActiveRecord::Schema.define(version: 20150602161009) do
     t.text     "name"
     t.text     "photo_url"
     t.text     "hometown"
-    t.text     "interests"
-    t.text     "favorites"
+    t.text     "hobby"
     t.text     "about_me"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

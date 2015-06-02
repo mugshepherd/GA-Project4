@@ -3,7 +3,7 @@ class CreateFavorites < ActiveRecord::Migration
     create_table :favorites do |t|
     	t.belongs_to :profile
 
-    	t.text :favorites
+    	t.text :location
     end
   end
 end

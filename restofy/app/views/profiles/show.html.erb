@@ -1,1 +1,12 @@
-<h2>Welcome to <%= @profile.name %></h2>
+<%= link_to "Edit profile", edit_profile_path(@profile) %> 
+<div class="profile-title">
+	<h2> Welcome to <%= @profile.name %>'s Page </h2>
+</div>
+<%= image_tag @profile.photo_url, :class => "profile-image" %>
+
+<div class="profile-content">
+	Hometown: <%= @profile.hometown %><br>
+	Hobbies: <%= @profile.hobby %><br>
+	About me: <%= @profile.about_me %><br>
+
+</div> 

@@ -3,12 +3,12 @@ class ProfilesController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@profile = current_user.profile.find(params[:id])
+		@profile = current_user.profile
 	end
 
 	def show
 		@user = current_user
-		@profile = current_user.profile.find(params[:id])
+		@profile = current_user.profile
 		# @interests = current_user.interests.find(params[:id])
 
 	end
@@ -33,12 +33,18 @@ class ProfilesController < ApplicationController
 	end
 
 	def update
+		@user = current_user
 		@profile = current_user.profile
+		if @profile.update_attributes(profile_params)
+			redirect_to @profile
+		else
+			render 'edit'
+		end
 	end
 
 	private
 	def profile_params
-    	params[:profile].permit(:name, :photo_url, :hometown, :interests, :favorites, :about_me)
+    	params[:profile].permit(:name, :photo_url, :hometown, :hobby, :about_me)
 	end
 
 end

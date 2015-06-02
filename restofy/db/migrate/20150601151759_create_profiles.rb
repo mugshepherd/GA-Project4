@@ -6,8 +6,7 @@ class CreateProfiles < ActiveRecord::Migration
     	t.text :name
     	t.text :photo_url
     	t.text :hometown
-    	t.text :interests
-    	t.text :favorites
+    	t.text :hobby
     	t.text :about_me
     	t.timestamps null: false
     end

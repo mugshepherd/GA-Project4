@@ -1,5 +1,5 @@
 class Favorite < ActiveRecord::Base
 	belongs_to :profile
 
-	validates :favorites, :presence => true
+	validates :location, :presence => true
 end
