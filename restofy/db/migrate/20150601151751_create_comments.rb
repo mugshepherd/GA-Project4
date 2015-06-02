@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration
     	t.belongs_to :profile
 
     	t.text :content
-    	t.timestamps null: false 
+    	t.timestamps :date_taken 
     end
   end
 end
