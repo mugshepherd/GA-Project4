@@ -11,15 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601215007) do
+ActiveRecord::Schema.define(version: 20150602161009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "favorites", force: :cascade do |t|
+    t.integer "profile_id"
+    t.text    "favorites"
   end
 
   create_table "inspections", force: :cascade do |t|
@@ -40,6 +46,10 @@ ActiveRecord::Schema.define(version: 20150601215007) do
 
   add_index "inspections", ["restaurant_id"], name: "index_inspections_on_restaurant_id", using: :btree
 
+  create_table "interests", force: :cascade do |t|
+    t.integer "profile_id"
+  end
+
   create_table "maps", force: :cascade do |t|
   end
 
@@ -52,6 +62,15 @@ ActiveRecord::Schema.define(version: 20150601215007) do
   end
 
   create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "name"
+    t.text     "photo_url"
+    t.text     "hometown"
+    t.text     "interests"
+    t.text     "favorites"
+    t.text     "about_me"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "restaurants", force: :cascade do |t|
