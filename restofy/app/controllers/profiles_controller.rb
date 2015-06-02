@@ -3,23 +3,24 @@ class ProfilesController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@profile = current_user.profiles.find(params[:id])
+		@profile = current_user.profile.find(params[:id])
 	end
 
 	def show
 		@user = current_user
-		@profile = current_user.profiles.find(params[:id])
+		@profile = current_user.profile.find(params[:id])
 		# @interests = current_user.interests.find(params[:id])
 
 	end
 
 	def new
 		@user = current_user
-		@profile = current_user.profiles.new
+		@profile = Profile.new
 	end
 
 	def create
-		@profile = current_user.profiles.new(profile_params)
+		@profile = Profile.new(profile_params)
+		@profile.user_id = current_user.id
 		if @profile.save
 			redirect_to @profile
 		else
@@ -28,11 +29,11 @@ class ProfilesController < ApplicationController
 	end
 
 	def edit
-		@profile = Profile.find(params[:id])
+		@profile = current_user.profile
 	end
 
 	def update
-		@profile = current_user.profiles.find(profile_params)
+		@profile = current_user.profile
 	end
 
 	private
