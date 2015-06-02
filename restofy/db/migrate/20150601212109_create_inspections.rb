@@ -2,7 +2,7 @@ class CreateInspections < ActiveRecord::Migration
   def change
     create_table :inspections do |t|
       t.integer :InspectionID
-      t.references :PermitID, index: true, foreign_key: true
+      t.belongs_to :restaurant, index: true, foreign_key: true
       t.date :Date
       t.time :Time
       t.text :InspectionType

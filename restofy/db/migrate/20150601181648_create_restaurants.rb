@@ -6,6 +6,7 @@ class CreateRestaurants < ActiveRecord::Migration
     	t.text :Address
     	t.decimal :Latitude
     	t.decimal :Longitude
+    	t.text :YelpID
     	
     	t.timestamps null: false
     end
