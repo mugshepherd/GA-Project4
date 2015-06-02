@@ -11,56 +11,75 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601215007) do
+ActiveRecord::Schema.define(version: 20150602161009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "favorites", force: :cascade do |t|
+    t.integer "profile_id"
+    t.text    "favorites"
   end
 
   create_table "inspections", force: :cascade do |t|
-    t.integer  "InspectionID"
+    t.integer  "inspection_id"
     t.integer  "restaurant_id"
-    t.date     "Date"
-    t.time     "Time"
-    t.text     "InspectionType"
-    t.integer  "CriticalViolations"
-    t.integer  "NonCriticalViolations"
-    t.integer  "CriticalViolationsCorrectedOnSite"
-    t.integer  "CriticalViolationsToBeResolved"
-    t.integer  "NonCriticalViolationsCorrectedOnSite"
-    t.integer  "NonCriticalViolationsToBeResolved"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.date     "date"
+    t.time     "time"
+    t.text     "inspection_type"
+    t.integer  "critical_violations"
+    t.integer  "non_critical_violations"
+    t.integer  "critical_violations_corrected_on_site"
+    t.integer  "critical_violations_to_be_resolved"
+    t.integer  "non_critical_violations_corrected_on_site"
+    t.integer  "non_critical_violations_to_be_resolved"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   add_index "inspections", ["restaurant_id"], name: "index_inspections_on_restaurant_id", using: :btree
+
+  create_table "interests", force: :cascade do |t|
+    t.integer "profile_id"
+  end
 
   create_table "maps", force: :cascade do |t|
   end
 
   create_table "potential_violations", force: :cascade do |t|
-    t.text     "ViolationNumber"
-    t.text     "ViolationDescription"
-    t.text     "ViolationCategory"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.text     "violation_number"
+    t.text     "violation_description"
+    t.text     "violation_category"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "name"
+    t.text     "photo_url"
+    t.text     "hometown"
+    t.text     "interests"
+    t.text     "favorites"
+    t.text     "about_me"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.text     "Name"
-    t.integer  "PermitID"
-    t.text     "Address"
-    t.decimal  "Latitude"
-    t.decimal  "Longitude"
-    t.text     "YelpID"
+    t.text     "name"
+    t.integer  "permit_id"
+    t.text     "address"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.text     "yelp_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
