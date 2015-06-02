@@ -18,3 +18,7 @@ Date: May 26,2015
 
 # Icebox: 
 - Users may can post their pictures on their comments. 
+
+# Note:
+To seed database, after running "rake db:create" & "rake db:migrate", run the following command:  "rake seed:resto_seed"
+This will seed the database with basic info for restaurants in DC.  
