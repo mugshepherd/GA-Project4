@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  InspectionID_id: 
+  ViolationNumber_id: 
+  ViolationText: MyText
+
+two:
+  InspectionID_id: 
+  ViolationNumber_id: 
+  ViolationText: MyText
