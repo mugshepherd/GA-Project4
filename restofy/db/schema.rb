@@ -26,22 +26,23 @@ ActiveRecord::Schema.define(version: 20150602161009) do
   create_table "favorites", force: :cascade do |t|
     t.integer "profile_id"
     t.text    "location"
+    t.text    "favorites"
   end
 
   create_table "inspections", force: :cascade do |t|
-    t.integer  "InspectionID"
+    t.integer  "inspection_ref"
     t.integer  "restaurant_id"
-    t.date     "Date"
-    t.time     "Time"
-    t.text     "InspectionType"
-    t.integer  "CriticalViolations"
-    t.integer  "NonCriticalViolations"
-    t.integer  "CriticalViolationsCorrectedOnSite"
-    t.integer  "CriticalViolationsToBeResolved"
-    t.integer  "NonCriticalViolationsCorrectedOnSite"
-    t.integer  "NonCriticalViolationsToBeResolved"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.text     "date"
+    t.time     "time"
+    t.text     "inspection_type"
+    t.integer  "critical_violations"
+    t.integer  "non_critical_violations"
+    t.integer  "critical_violations_corrected_on_site"
+    t.integer  "critical_violations_to_be_resolved"
+    t.integer  "non_critical_violations_corrected_on_site"
+    t.integer  "non_critical_violations_to_be_resolved"
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   add_index "inspections", ["restaurant_id"], name: "index_inspections_on_restaurant_id", using: :btree
@@ -55,11 +56,11 @@ ActiveRecord::Schema.define(version: 20150602161009) do
   end
 
   create_table "potential_violations", force: :cascade do |t|
-    t.text     "ViolationNumber"
-    t.text     "ViolationDescription"
-    t.text     "ViolationCategory"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.text     "violation_number"
+    t.text     "violation_description"
+    t.text     "violation_category"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -68,18 +69,20 @@ ActiveRecord::Schema.define(version: 20150602161009) do
     t.text     "photo_url"
     t.text     "hometown"
     t.text     "hobby"
+    t.text     "interests"
+    t.text     "favorites"
     t.text     "about_me"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.text     "Name"
-    t.integer  "PermitID"
-    t.text     "Address"
-    t.decimal  "Latitude"
-    t.decimal  "Longitude"
-    t.text     "YelpID"
+    t.text     "name"
+    t.integer  "permit_id"
+    t.text     "address"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.text     "yelp_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -105,7 +108,7 @@ ActiveRecord::Schema.define(version: 20150602161009) do
   create_table "violations", force: :cascade do |t|
     t.integer  "inspection_id"
     t.integer  "potential_violation_id"
-    t.text     "ViolationText"
+    t.text     "violation_text"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

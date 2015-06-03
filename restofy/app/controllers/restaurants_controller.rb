@@ -16,7 +16,7 @@ class RestaurantsController < ApplicationController
         },
         properties: {
           name: restaurant.name,
-          address: restaurant.street,
+          address: restaurant.address,
           :'marker-color' => '#00607d',
           :'marker-symbol' => 'circle',
           :'marker-size' => 'medium'
