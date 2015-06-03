@@ -24,6 +24,11 @@ html {
 	font-family: 'Bitter', serif;
 }
 
+body {
+	height: 100%;
+	margin: 1em 2em;
+}
+
 a {
 	font-size: 20px;
 	text-decoration: none;
@@ -32,6 +37,9 @@ a {
 
 nav {
 	text-align: center;
+	background-color: #2C2C2C;
+	width: 100%;
+	padding: 2px 0;
 }
 
 li {

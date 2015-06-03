@@ -4,6 +4,8 @@ gem 'rails_12factor', group: :production
 
 gem 'figaro'
 
+#Geocoder is for finding the location in the MapBox API
+gem 'geocoder'
 # Devise as User Log In System
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
