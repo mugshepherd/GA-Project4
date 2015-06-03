@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 20150602161009) do
   end
 
   create_table "inspections", force: :cascade do |t|
-    t.integer  "inspection_id"
+    t.integer  "inspection_ref"
     t.integer  "restaurant_id"
-    t.date     "date"
+    t.text     "date"
     t.time     "time"
     t.text     "inspection_type"
     t.integer  "critical_violations"
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20150602161009) do
   create_table "violations", force: :cascade do |t|
     t.integer  "inspection_id"
     t.integer  "potential_violation_id"
-    t.text     "ViolationText"
+    t.text     "violation_text"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

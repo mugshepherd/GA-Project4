@@ -1,9 +1,9 @@
 class CreateInspections < ActiveRecord::Migration
   def change
     create_table :inspections do |t|
-      t.integer :inspection_id
+      t.integer :inspection_ref
       t.belongs_to :restaurant, index: true, foreign_key: true
-      t.date :date
+      t.text :date
       t.time :time
       t.text :inspection_type
       t.integer :critical_violations
