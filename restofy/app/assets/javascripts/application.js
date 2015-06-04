@@ -15,9 +15,3 @@
 //= require turbolinks
 //= require_tree .
 
-var layer = L.mapbox.tileLayer('mapbox.streets');
-layer.on('ready', function() {
-  // the layer has been fully loaded now, and you can
-  // call .getTileJSON and investigate its properties
-});
-
