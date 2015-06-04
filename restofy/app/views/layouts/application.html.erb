@@ -7,9 +7,6 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-   <script>
-		
-	</script>
 
   <%= csrf_meta_tags %>
 </head>
@@ -45,80 +42,10 @@
 <%= render 'map' %>
 </div>
 
-<<<<<<< HEAD
-	<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
-
-	<%= yield %>
-
-	<script> 
-		
-		$("#search").click(function(){
-  			var latitude = $("#latitude").val();
-  			var longitude = $("#longitude").val();
- 			var zoom = $("#zoom").val();
-
-//This is incorrect, I'm just pseudo-coding
-//  			var response = Api.request
-//  			var latitude = response["latitude"]
-
-			var marker = L.marker([latitude, longitude], zoom).addTo(map);
-			var findLocation = L.setView([latitude, longitude], zoom).addTo(map);
-
-			L.map('map').setView([latitude, longitude], 13)			
-			
-			// var marker = L.marker([37, -77], 5).addTo(map);
-			var markerHtml = 'This place is weird';
-				marker.bindPopup(markerHtml);
-			
-		});
-
-		L.mapbox.accessToken = 'pk.eyJ1IjoidHNjaGFlZmZlcjc1MDQiLCJhIjoibGtEVEpDTSJ9.Ii90udJG3hfV3ftGYafKLQ';
-		var southWest = L.latLng(38.852, -77.137),
-    		northEast = L.latLng(38.944, -76.976),
-    		bounds = L.latLngBounds(southWest, northEast);
-		var map = L.mapbox.map('map', 'tschaeffer7504.mbaooln6', {
-			maxBounds: bounds,
-			maxZoom: 19,
-			minZoom: 12
-		})
-				.setView([38.899, -77.015], 12)
-				.addControl(L.mapbox.geocoderControl('mapbox.places'));
-
-		var myLayer = L.mapbox.featureLayer().addTo(map);
-		var features = [];
-
-		<% @restaurants.each do |restaurant| %>
-			features.push({
-  			type: 'Feature',
-  			geometry: {
-    		type: 'Point',
-    		coordinates: [<%= restaurant.latitude.to_f %>,<%= restaurant.longitude.to_f %>]
-    		},
-			properties: {
-    		name: '<%= restaurant.name %>',
-    		address: '<%= restaurant.address %>',
-    			'marker-color': '#000',
-    			'marker-symbol': 'star-stroked',
-    			}
-			});
-		<% end %>
-		
-		myLayer.setGeoJSON({
-    		type: 'FeatureCollection',
-    		features: features
-		});
-
-		map.fitBounds(bounds);
-		omnivore.csv('restaurants.csv').addTo(map);
-
-		
-
-	</script>
-=======
 <div id = "side_bar">
 <%= yield %>
 </div>
 
->>>>>>> 20a1322cfe46b64075c6e8dbb7b79ba400d96988
+
 </body>
 </html>
