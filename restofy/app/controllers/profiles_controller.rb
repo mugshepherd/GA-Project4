@@ -4,19 +4,25 @@ class ProfilesController < ApplicationController
 
 	def index
 		@profile = current_user.profile
-		redirect_to @profile
+		if @profile.blank?
+			redirect_to new_profile_path
+		else
+			redirect_to @profile
+		end
 	end
 
 	def show
+
 		@user = current_user
 		@profile = current_user.profile
-		# @interests = current_user.interests.find(params[:id])
+		
 
 	end
 
 	def new
 		@user = current_user
 		@profile = Profile.new
+		@restaurants = Restaurant.all
 	end
 
 	def create

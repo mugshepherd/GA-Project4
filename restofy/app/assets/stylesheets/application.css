@@ -15,13 +15,12 @@
  */
 
 @import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
-@import url('http://fonts.googleapis.com/css?family=Lato');
-
 
 html {
 	background-color: #1F1F1F;
 	color: #ECECEC;
 	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 2em;
 }
 
 body {
@@ -35,16 +34,14 @@ a {
 	color: #64E700;
 }
 
-nav {
-	text-align: center;
-	background-color: #2C2C2C;
-	width: 100%;
-	padding: 2px 0;
+ul {
+	right: 0;
+	/*display: block;*/
 }
 
 li {
-	margin: 0 1em;
 	display: inline-block;
+	margin: 0 0.25em;
 }
 
 .restofy-home {
@@ -57,7 +54,7 @@ li {
 	width: 65%;
 }
 
-.restaurants-index {
+.application-sidebar {
 	position: fixed;
 	right: 0;
 	width: 35%;
@@ -65,8 +62,23 @@ li {
 	overflow: scroll;
 }
 
+.nav {
+	position: fixed;
+	float: right;
+	height: 10%;
+	background-color: #2C2C2C;
+	width: 35%;
+}
+
+.restaurant-index {
+	height: 90%;
+	float: right;
+	margin-top: 3.5em;
+}
+
 .ul-content {
-	border: 1px solid #D9FFD7;
+	border-top: 1px solid #D9FFD7;
+	border-bottom: 1px solid #D9FFD7;
 	background-color: #1F1F1F;
 	color: #ECECEC;
 	transition-property: background-color, color;
@@ -79,13 +91,18 @@ li {
 	color: #68FF60;
 }
 
+.restaurant-ul li a {
+	display: block;
+}
+
 .restaurant-ul li.restaurant-name-li a {
-	font-size: 27px;
+	font-size: 2em;
 
 }
 
 .restaurant-ul li.restaurant-detail-li a {
 	color: #ECECEC;
+	font-size: 1em;
 }
 
 .profile-image {
@@ -94,4 +111,36 @@ li {
 
 .profile-form {
 	width: 200px;
+}
+
+@media screen and (min-width: 320px) {
+	html { font-size: 1em; }
+	#map { position: absolute; top: 0; height: 50%; width: 100%; }
+	.application-sidebar { bottom: 0; height: 50%; width: 100%; }
+	.restaurant-ul li.restaurant-name-li a { font-size: 1em; }
+	.restaurant-ul li.restaurant-detail-li a { font-size: 0.75em; }
+}
+
+@media screen and (min-width: 640px) {
+	html { font-size: 1.25em; }
+	#map { position: absolute; top: 0; height: 50%; width: 100%; }
+	.application-sidebar { bottom: 0; height: 50%; width: 100% }
+	.restaurant-ul li.restaurant-name-li a { font-size: 1.25em; }
+	.restaurant-ul li.restaurant-detail-li a { font-size: 0.8em; }
+}
+
+@media screen and (min-width: 960px) {
+	html { font-size: 1.5em; }
+	#map { position: absolute; top: 0; height: 100%; width: 65%; }
+	.application-sidebar { bottom: 0; height: 100%; width: 35%; }
+	.restaurant-ul li.restaurant-name-li a { font-size: 1.5 em; }
+	.restaurant-ul li.restaurant-detail-li a { font-size: 0.9em; }
+}
+
+@media screen and (max-width: 2880px) and (min-width: 1280px) {
+	html { font-size: 1.75em; }
+	#map { position: absolute; top: 0; height: 100%; width: 65% }
+	.application-sidebar { bottom: 0; height: 100%; width: 35%; }
+	.restaurant-ul li.restaurant-name-li a { font-size: 1.75em; }
+	.restaurant-ul li.restaurant-detail-li a { font-size: 1em; }
 }
