@@ -14,24 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-<<<<<<< HEAD
-var layer = L.mapbox.tileLayer('mapbox.streets');
-layer.on('ready', function() {
-  // the layer has been fully loaded now, and you can
-  // call .getTileJSON and investigate its properties
-});
-
-$.ajax({
-  dataType: 'text',
-  url: '<%= root_path %>',
-  success: function(data) {
-    var geojson;
-    geojson = $.parseJSON(data);
-    return map.featureLayer.setGeoJSON(geojson);
-  }
-});
-
-console.log("js working");
-=======
->>>>>>> 20a1322cfe46b64075c6e8dbb7b79ba400d96988
