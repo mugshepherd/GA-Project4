@@ -14,14 +14,14 @@
  *= require_self
  */
 
-@import url('http://fonts.googleapis.com/css?family=Bitter');
-@import url('http://fonts.googleapis.com/css?family=Fjalla+One');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@import url('http://fonts.googleapis.com/css?family=Lato');
 
 
 html {
 	background-color: #1F1F1F;
 	color: #ECECEC;
-	font-family: 'Bitter', serif;
+	font-family: 'Open Sans Condensed', sans-serif;
 }
 
 body {
@@ -56,10 +56,32 @@ li {
 .restaurants-index {
 	position: fixed;
 	right: 0;
-	float: right;
 	width: 35%;
 	height: 100%;
 	overflow: scroll;
+}
+
+.ul-content {
+	border: 1px solid #D9FFD7;
+	background-color: #1F1F1F;
+	color: #ECECEC;
+	transition-property: background-color, color;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+}
+
+.ul-content:hover {
+	background: #444444;
+	color: #68FF60;
+}
+
+.restaurant-ul li.restaurant-name-li a {
+	font-size: 27px;
+
+}
+
+.restaurant-ul li.restaurant-detail-li a {
+	color: #ECECEC;
 }
 
 .profile-image {

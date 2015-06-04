@@ -1,7 +1,12 @@
 <div class="restaurants-index">
-	<ul>
+	
 	<% @restaurants.each do |restaurant| %>
-	  <li><%= link_to restaurant.name, restaurant %></li>
+		<div class="ul-content">
+		<ul class="restaurant-ul">
+			<li class = "restaurant-name-li"><%= link_to restaurant.name, restaurant %></li>
+			<li class= "restaurant-detail-li"><%= link_to restaurant.address, restaurant %></li>
+		</ul>
+		</div>
 	<% end %>
-	</ul>
+	
 </div>
