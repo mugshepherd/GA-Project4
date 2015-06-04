@@ -8,20 +8,29 @@ class RestaurantsController < ApplicationController
     @geojson = Array.new
 
     @restaurants.each do |restaurant|
-      @geojson << {
+      last_inspection = restaurant.inspections.last
+      restaurant_info = {
         type: 'Feature',
         geometry: {
           type: 'Point',
-          coordinates: [restaurant.latitude.to_f , restaurant.longitude.to_f]
+          coordinates: [restaurant.longitude.to_f,restaurant.latitude.to_f]
         },
         properties: {
-          name: restaurant.name,
-          address: restaurant.address,
+          id: restaurant.id,
+          title: restaurant.name,
+          description: restaurant.address,
+          # 'last_inspection': last_inspection ? last_insepction.date : nil,
+          # 'Critical Violations': restaurant.inspections.last.critical_violations,
+          # 'Non-critical Violations': restaurant.inspections.last.non_critical_violations,
           :'marker-color' => '#00607d',
           :'marker-symbol' => 'circle',
           :'marker-size' => 'medium'
         }
       }
+        if last_inspection
+          restaurant_info = restaurant_info.merge(last_inspection: last_inspection.date)
+        end
+      @geojson << restaurant_info
     end
     respond_to do |format|
       format.html
@@ -29,30 +38,30 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def show
-    @restaurant = Restaurant.find(params[:id])
-    @geojson = Array.new
+  # def show
+  #   @restaurant = Restaurant.find(params[:id])
+  #   @geojson = Array.new
 
-      @geojson << {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [@restaurant.latitude.to_f , @restaurant.longitude.to_f]
-        },
-        properties: {
-          title: @restaurant.name,
-          description: @restaurant.address,
-          :'marker-color' => '#00607d',
-          :'marker-symbol' => 'circle',
-          :'marker-size' => 'medium'
-        }
-      }
+  #     @geojson << {
+  #       type: 'Feature',
+  #       geometry: {
+  #         type: 'Point',
+  #         coordinates: [restaurant.longitude.to_f,restaurant.latitude.to_f]
+  #       },
+  #       properties: {
+  #         title: restaurant.name,
+  #         description: restaurant.address,
+  #         :'marker-color' => '#00607d',
+  #         :'marker-symbol' => 'circle',
+  #         :'marker-size' => 'medium'
+  #       }
+  #     }
     
-    respond_to do |format|
-      format.html
-      format.json {render json: @geojson}
-    end
-  end
+  #   respond_to do |format|
+  #     format.html
+  #     format.json {render json: @geojson}
+  #   end
+  # end
 
   
   private
