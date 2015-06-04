@@ -2,12 +2,15 @@
 <html>
 <head>
   <title>Restofy</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.js'></script>
 	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.9/mapbox.css' rel='stylesheet' />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-  
+   <script>
+		
+	</script>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -38,7 +41,11 @@
             </ul>
         </nav>
 	</header>
+<div id = 'map'>
+<%= render 'map' %>
+</div>
 
+<<<<<<< HEAD
 	<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
 
 	<%= yield %>
@@ -107,5 +114,11 @@
 		
 
 	</script>
+=======
+<div id = "side_bar">
+<%= yield %>
+</div>
+
+>>>>>>> 20a1322cfe46b64075c6e8dbb7b79ba400d96988
 </body>
 </html>

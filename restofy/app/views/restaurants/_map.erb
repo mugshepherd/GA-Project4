@@ -1,0 +1,22 @@
+
+
+<% @restaurants.each do |restaurant| %>
+features.push({ 
+	type: 'Feature',
+	geometry: {
+		type: 'Point',
+		coordinates: [<%= restaurant.latitude.to_f %>,<%= restaurant.longitude.to_f %>]
+	},
+	properties: {
+		name: '<%= restaurant.name %>',
+		address: '<%= restaurant.address %>',
+		'marker-color': '#000',
+		'marker-symbol': 'star-stroked',
+	}
+});
+
+<% end %>
+	
+map.fitBounds(bounds);
+
+

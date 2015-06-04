@@ -12,7 +12,7 @@ class RestaurantsController < ApplicationController
         type: 'Feature',
         geometry: {
           type: 'Point',
-          coordinates: [longitude, latitude]
+          coordinates: [restaurant.latitude.to_f , restaurant.longitude.to_f]
         },
         properties: {
           name: restaurant.name,
@@ -22,6 +22,10 @@ class RestaurantsController < ApplicationController
           :'marker-size' => 'medium'
         }
       }
+    end
+    respond_to do |format|
+      format.html
+      format.json { render json: @geojson }  # respond with the created JSON object
     end
   end
 
