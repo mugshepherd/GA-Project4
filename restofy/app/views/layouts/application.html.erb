@@ -39,6 +39,8 @@
         </nav>
 	</header>
 
+	<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+
 	<%= yield %>
 
 	<script> 
@@ -69,7 +71,7 @@
     		bounds = L.latLngBounds(southWest, northEast);
 		var map = L.mapbox.map('map', 'tschaeffer7504.mbaooln6', {
 			maxBounds: bounds,
-			maxZoom: 25,
+			maxZoom: 19,
 			minZoom: 12
 		})
 				.setView([38.899, -77.015], 12)
@@ -100,6 +102,10 @@
 		});
 
 		map.fitBounds(bounds);
+		omnivore.csv('restaurants.csv').addTo(map);
+
+		
+
 	</script>
 </body>
 </html>

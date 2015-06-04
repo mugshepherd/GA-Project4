@@ -21,3 +21,14 @@ layer.on('ready', function() {
   // call .getTileJSON and investigate its properties
 });
 
+$.ajax({
+  dataType: 'text',
+  url: '<%= root_path %>',
+  success: function(data) {
+    var geojson;
+    geojson = $.parseJSON(data);
+    return map.featureLayer.setGeoJSON(geojson);
+  }
+});
+
+console.log("js working");

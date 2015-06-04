@@ -1,0 +1,12 @@
+<div class= "map_form">
+<%= form_for @maps do |f| %>
+  <%= f.label :location %><br>
+  <%= f.text_field :location %>
+  <br><br>
+  <%= f.label :content %><br>
+  <%= f.text_field :content %>
+  <br><br>
+  
+  <%= f.submit "Search", :class => 'map-form' %>
+<% end %>
+</div>
