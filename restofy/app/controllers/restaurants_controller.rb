@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants?completed=false
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.limit(100)
     @geojson = Array.new
 
     @restaurants.each do |restaurant|

@@ -1,6 +1,14 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+
+/* Overall Style */
+html {
+	background-color: #1F1F1F;
+	color: white;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 2em;
+}
+
 body {
-	color:#404040;
-	font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
 	margin:0;
 	padding:0;
 	-webkit-font-smoothing:antialiased;
@@ -17,6 +25,7 @@ h1 {
 	margin:0;
 	font-weight:400;
 }
+
 a {
 	color:#404040;
 	text-decoration:none;
@@ -28,7 +37,7 @@ a:hover { color:#101010; }
 	position:absolute;
 	width:33.3333%;
 	height:100%;
-	top:0;left:0;
+	top:0;right:0;
 	overflow:hidden;
 	border-right:1px solid rgba(0,0,0,0.25);
 }
@@ -40,12 +49,12 @@ a:hover { color:#101010; }
 }
 .map {
 	position:absolute;
-	left:33.3333%;
+	left:0;
 	width:66.6666%;
 	top:0;bottom:0;
 }
 .heading {
-	background:#fff;
+	background: #171717;
 	border-bottom:1px solid #eee;
 	height:60px;
 	line-height:60px;
@@ -61,16 +70,27 @@ a:hover { color:#101010; }
 	border-bottom:1px solid #eee;
 	padding:10px;
 	text-decoration:none;
+	transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
 }
-.listings .item:last-child { border-bottom:none; }
+
+.listings .item:hover {
+	background-color: #393939
+}
+
+.listings .item:last-child { 
+	border-bottom:none;
+}
+
 .listings .item .title {
 	display:block;
-	color:#00853e;
+	color: #74FF00;
 	font-weight:700;
 }
 .listings .item .title small { font-weight:400; }
 .listings .item.active .title,
-.listings .item .title:hover { color:#8cc63f; }
+/*.listings .item .title:hover { color:#8cc63f; }*/
 .listings .item.active {
 	background-color:#f8f8f8;
 }
@@ -103,7 +123,8 @@ a:hover { color:#101010; }
 	display:none;
 }
 .leaflet-popup-content {
-	font:400 15px/22px 'Source Sans Pro', 'Helvetica Neue', Sans-serif;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 1.5em;
 	padding:0;
 	width:200px;
 }
@@ -111,7 +132,7 @@ a:hover { color:#101010; }
 	padding:0;
 }
 .leaflet-popup-content h3 {
-	background:#91c949;
+	background:#434343;
 	color:#fff;
 	margin:0;
 	display:block;
@@ -124,3 +145,31 @@ a:hover { color:#101010; }
 	padding:10px;
 }
 .leaflet-container .leaflet-marker-icon { cursor:pointer; }
+
+@media screen and (min-width: 320px) {
+	html { font-size: 0.5em; }
+	.map { position: absolute; top: 0; height: 50%; width: 100%; }
+	.sidebar { top: 50%; right: 0; height: 50%; width: 100%; }
+	.listing .item { font-size: 0.5em; }
+}
+
+@media screen and (min-width: 640px) {
+	html { font-size: 0.8em; }
+	.map { position: absolute; top: 0; height: 100%; width: 65%; }
+	.sidebar { top: 0; right: 0; height: 100%; width: 35% }
+	.listing .item { font-size: 0.7em; }
+}
+
+@media screen and (min-width: 960px) {
+	html { font-size: 1em; }
+	.map { position: absolute; top: 0; height: 100%; width: 65%; }
+	.sidebar { top: 0; right: 0; height: 100%; width: 35%; }
+	.listing .item { font-size: 0.9m; }
+}
+
+@media screen and (max-width: 2880px) and (min-width: 1280px) {
+	html { font-size: 1.25em; }
+	.map { position: absolute; top: 0; height: 100%; width: 65% }
+	.sidebar { top: 0; right: 0; height: 100%; width: 35%; }
+	.listing .item { font-size: 1em; }
+}
