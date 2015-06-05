@@ -3,7 +3,7 @@
 /* Overall Style */
 html {
 	background-color: #1F1F1F;
-	color: white;
+	color: #FFFFFF;
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 2em;
 }
@@ -27,11 +27,16 @@ h1 {
 }
 
 a {
-	color:#404040;
+	color:#74FF00;
 	text-decoration:none;
 }
 
 a:hover { color:#101010; }
+
+li {
+	display: inline-block;
+	margin: 0 0.2em;
+}
 
 .sidebar {
 	position:absolute;
@@ -58,7 +63,7 @@ a:hover { color:#101010; }
 	border-bottom:1px solid #eee;
 	height:60px;
 	line-height:60px;
-	padding:0 10px;
+	padding:0 2px;
 }
 .listings {
 	height:100%;
@@ -93,6 +98,7 @@ a:hover { color:#101010; }
 /*.listings .item .title:hover { color:#8cc63f; }*/
 .listings .item.active {
 	background-color:#f8f8f8;
+	color: black;
 }
 
 ::-webkit-scrollbar {
@@ -123,17 +129,28 @@ a:hover { color:#101010; }
 	display:none;
 }
 .leaflet-popup-content {
+	background-color: #1F1F1F;
 	font-family: 'Open Sans Condensed', sans-serif;
-	font-size: 1.5em;
+	font-size: 2em;
 	padding:0;
 	width:300px;
 }
 .leaflet-popup-content-wrapper {
 	padding:0;
+	opacity: 0.9;
+	transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
 }
+
+.leaflet-popup-content-wrapper:hover {
+	padding:0;
+	opacity: 1;
+}
+
 .leaflet-popup-content h3 {
-	background:#434343;
-	color:#fff;
+	background:#74FF00;
+	color:#1F1F1F;
 	margin:0;
 	display:block;
 	padding:10px;
@@ -143,6 +160,7 @@ a:hover { color:#101010; }
 }
 .leaflet-popup-content div {
 	padding:10px;
+	color: #FFFFFF;
 }
 .leaflet-container .leaflet-marker-icon { cursor:pointer; }
 
@@ -150,14 +168,18 @@ a:hover { color:#101010; }
 	display:block;
 }
 
-@media screen and (max-width: 320px) {
+.nav-ul {
+
+}
+
+@media screen and (max-width: 340px) {
 	html { font-size: 0.9em; }
 	.map { position: absolute; top: 0; height: 50%; width: 100%; }
 	.sidebar { top: 50%; right: 0; height: 50%; width: 100%; }
 	.listing .item { font-size: 1em; }
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 340px) {
 	html { font-size: 0.9em; }
 	.map { position: absolute; top: 0; height: 50%; width: 100%; }
 	.sidebar { top: 50%; right: 0; height: 50%; width: 100%; }
