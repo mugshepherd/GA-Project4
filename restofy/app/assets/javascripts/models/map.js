@@ -20,7 +20,6 @@ $(document).ready(function(){
 
 	locations.eachLayer(function(locale) {
 
-
     var prop = locale.feature.properties;
     var last_inspection = locale.feature.last_inspection ? locale.feature.last_inspection : null
 
@@ -31,7 +30,6 @@ $(document).ready(function(){
       popup+="<span class='popup-details'> # Critical Violations:  " + last_inspection.critical_violations + "</span>"
       popup+="<span class='popup-details'> Outstanding Critical Violations:  " + last_inspection.critical_violations_to_be_resolved + "</span></small>";
     }
-
     var listing = listings.appendChild(document.createElement('div'));
     listing.className = 'item';
     var link = listing.appendChild(document.createElement('a'));
@@ -50,8 +48,6 @@ $(document).ready(function(){
       locale.openPopup();
       return false;
   };
-
-
     // Marker interaction
     locale.on('click', function(e) {
       // 1. center the map on the selected marker.
@@ -61,10 +57,7 @@ $(document).ready(function(){
       // 2. Set active the markers associated listing.
       setActive(listing);
   });
-
     popup += '</div>';
     locale.bindPopup(popup);
-
   });
-
 });
