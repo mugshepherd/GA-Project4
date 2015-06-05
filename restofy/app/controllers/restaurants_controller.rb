@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants?completed=false
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.all.limit(100)
     @geojson = Array.new
 
     @restaurants.each do |restaurant|
@@ -28,10 +28,11 @@ class RestaurantsController < ApplicationController
         }
       }
         if last_inspection
-          restaurant_info = restaurant_info.merge(last_inspection: last_inspection.date)
+          restaurant_info = restaurant_info.merge(last_inspection: last_inspection)
         end
       @geojson << restaurant_info
     end
+    gon.geojson = @geojson
     respond_to do |format|
       format.html
       format.json { render json: @geojson }  # respond with the created JSON object

@@ -6,6 +6,7 @@
 	<title>Store Locator</title>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= include_gon %>
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
 	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
 	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
@@ -25,24 +26,9 @@
 
 <script>
 	L.mapbox.accessToken = 'pk.eyJ1IjoidHNjaGFlZmZlcjc1MDQiLCJhIjoibGtEVEpDTSJ9.Ii90udJG3hfV3ftGYafKLQ';
-	var geojson = []; 
+	var geojson = gon.geojson;
 
-	<% @restaurants.each do |restaurant| %>
-	geojson.push({
-		id:  <%=restaurant.id %>,
-		type: 'Feature',
-		geometry: {
-			type: 'Point',
-			coordinates: [<%=restaurant.longitude.to_f%>,<%= restaurant.latitude.to_f %>]
-		},
-		properties: {
-			title: '<%= restaurant.name %>',
-			description: '<%= restaurant.address %>',
-			'marker-color': '#000',
-			'marker-symbol': 'star-stroked',
-		}
-	});
-	<% end %>
+
 
 
 	var map = L.mapbox.map('map', 'tschaeffer7504.mbaooln6').setView([38.899, -77.015], 12);
@@ -69,9 +55,15 @@
     // Shorten locationsocale.feature.properties to just `prop` so we're not
     // writing this long form over and over again.
     var prop = locale.feature.properties;
+    var last_inspection = locale.feature.last_inspection ? locale.feature.last_inspection : null
 
     // Each marker on the map.
-    var popup = '<h3>' + prop.title + '</h3><div>' + prop.description;
+    var popup = '<h3>' + prop.title + '</h3><div>' + prop.description + '<div>' ;
+    if (last_inspection) {
+      popup+="<span> Date of Last Inspection:  " + last_inspection.date + "</span>"
+      popup+="<span> # Critical Violations:  " + last_inspection.critical_violations + "</span>"
+      popup+="<span> Outstanding Critical Violations:  " + last_inspection.critical_violations_to_be_resolved + "</span>"
+    }
 
     var listing = listings.appendChild(document.createElement('div'));
     listing.className = 'item';
@@ -88,8 +80,12 @@
 
     var details = listing.appendChild(document.createElement('div'));
     details.innerHTML = prop.description;
-    if (prop.phone) {
-    	details.innerHTML += ' &middot; ' + prop.phoneFormatted;
+    if (prop.id) {
+    	details.innerHTML += ' &middot; ' + prop.id;
+    }
+    console.log(last_inspection)
+    if (last_inspection) {
+      details.innerHTML += ' &middot; <br>Last Inspection Date: ' + last_inspection.date;
     }
 
     link.onclick = function() {
