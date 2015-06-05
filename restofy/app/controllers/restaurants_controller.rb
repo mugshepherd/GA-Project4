@@ -28,10 +28,11 @@ class RestaurantsController < ApplicationController
         }
       }
         if last_inspection
-          restaurant_info = restaurant_info.merge(last_inspection: last_inspection.date)
+          restaurant_info = restaurant_info.merge(last_inspection: last_inspection)
         end
       @geojson << restaurant_info
     end
+    gon.geojson = @geojson
     respond_to do |format|
       format.html
       format.json { render json: @geojson }  # respond with the created JSON object

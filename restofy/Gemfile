@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 gem 'pry'
 gem 'rails_12factor', group: :production
-
+gem 'gon'
 gem 'figaro'
 
 #Geocoder is for finding the location in the MapBox API
