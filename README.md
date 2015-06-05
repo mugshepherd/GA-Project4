@@ -10,7 +10,6 @@ What it contains: MapBox API, Yelp API, and Javascript map
 - If an user click on any marker on the map, the marker displays the pop-up containing more details about the restaurant. 
 - Similar to markers' function, when an user click on the restaurant's link in the sidebar, the screen will automatically zoom to the right restaurant's location and also shows its pop-up with details.
 - On each pop the restaurant's name, address, violation score, and reviews.
-- 
 
 # User Stories: 
 - Users should see a map as the main content of the website while also should see a sidebar displaying all restaurants' names and addresses on the right side of the page. 
@@ -19,7 +18,11 @@ What it contains: MapBox API, Yelp API, and Javascript map
 - Users can move the view around the map and be able to click on the marker they want to look at. 
 - If an user tries to explore outside of the Washington, DC map, the view should automatically center back to the middle of Washington, DC.
 
-![alt tag](http://url/to/img.png)
+-Main Page including the list of all Restaurants-
+![alt tag](https://github.com/JYamauchi/GA-Project4/blob/master/Project-4-UI-Index.png)
+
+-Show Page of the Restaurant-
+![alt tag](https://github.com/JYamauchi/GA-Project4/blob/master/Project-4-UI-Show.png)
 
 # Icebox: 
 - Users may can post on their comments. 
