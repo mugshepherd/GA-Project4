@@ -126,7 +126,7 @@ a:hover { color:#101010; }
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 1.5em;
 	padding:0;
-	width:200px;
+	width:300px;
 }
 .leaflet-popup-content-wrapper {
 	padding:0;
@@ -146,25 +146,36 @@ a:hover { color:#101010; }
 }
 .leaflet-container .leaflet-marker-icon { cursor:pointer; }
 
+.popup-details{	
+	display:block;
+}
+
+@media screen and (max-width: 320px) {
+	html { font-size: 0.5em; }
+	.map { position: absolute; top: 0; height: 50%; width: 100%; }
+	.sidebar { top: 50%; right: 0; height: 50%; width: 100%; }
+	.listing .item { font-size: 1em; }
+}
+
 @media screen and (min-width: 320px) {
 	html { font-size: 0.5em; }
 	.map { position: absolute; top: 0; height: 50%; width: 100%; }
 	.sidebar { top: 50%; right: 0; height: 50%; width: 100%; }
-	.listing .item { font-size: 0.5em; }
+	.listing .item { font-size: 1em; }
 }
 
 @media screen and (min-width: 640px) {
 	html { font-size: 0.8em; }
 	.map { position: absolute; top: 0; height: 100%; width: 65%; }
 	.sidebar { top: 0; right: 0; height: 100%; width: 35% }
-	.listing .item { font-size: 0.7em; }
+	.listing .item { font-size: 1em; }
 }
 
 @media screen and (min-width: 960px) {
 	html { font-size: 1em; }
 	.map { position: absolute; top: 0; height: 100%; width: 65%; }
 	.sidebar { top: 0; right: 0; height: 100%; width: 35%; }
-	.listing .item { font-size: 0.9m; }
+	.listing .item { font-size: 1em; }
 }
 
 @media screen and (max-width: 2880px) and (min-width: 1280px) {
