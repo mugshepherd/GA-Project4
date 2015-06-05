@@ -34,42 +34,30 @@ $(document).ready(function(){
 
     var listing = listings.appendChild(document.createElement('div'));
     listing.className = 'item';
-
     var link = listing.appendChild(document.createElement('a'));
     link.href = '#';
     link.className = 'title';
-
     link.innerHTML = prop.title;
-    if (prop.crossStreet) {
-    	link.innerHTML += '<br /><small class="quiet">' + prop.crossStreet + '</small>';
-    	popup += '<br /><small class="quiet">' + prop.crossStreet + '</small>';
-    }
-
     var details = listing.appendChild(document.createElement('div'));
     details.innerHTML = prop.description;
-    if (prop.id) {
-    	details.innerHTML += ' &middot; ' + prop.id;
-    }
-    console.log(last_inspection)
     if (last_inspection) {
       details.innerHTML += ' &middot; <br>Last Inspection Date: ' + last_inspection.date;
     }
-
     link.onclick = function() {
     	setActive(listing);
-
-      // When a menu item is clicked, animate the map to center
-      // its associated locale and open its popup.
+      // when item is clicked, pan map to center of associated point, and open popup. 
       map.setView(locale.getLatLng(), 16);
       locale.openPopup();
       return false;
   };
 
+
     // Marker interaction
     locale.on('click', function(e) {
       // 1. center the map on the selected marker.
-      map.panTo(locale.getLatLng());
-
+      map.panTo(locale.getLatLng()), {
+            paddingTopLeft: [0, 50]
+          };
       // 2. Set active the markers associated listing.
       setActive(listing);
   });
